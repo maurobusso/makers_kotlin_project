@@ -16,10 +16,12 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.hangman.ui.theme.HangmanTheme
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding= ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
     }
 }
 

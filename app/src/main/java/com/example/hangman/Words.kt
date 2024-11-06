@@ -19,6 +19,6 @@ object Words {
         "snapdragon", "asteraceae", "iridaceae", "bryophyte", "rosaceae", "solanaceae", "herbaceous", "climber", "petunia",
         "rosewood", "timberline", "grasses", "trillium", "rootstock", "wisteria", "woodland", "zen", "seedling", "pollinator",
         "cutting", "layering", "propagation", "green", "pruning", "fertilizer", "sapling", "graft", "mulching", "landscaping",
-        "nursery", "hibernation", "dormancy", "corm", "succession", "monocot", "dicot", "bulrush", "plantlets", "taproot"
+        "nursery", "hibernation", "dormancy", "corm", "succession", "monocot", "dicot", "bulrush", "plantlet", "taproot"
     )
 }

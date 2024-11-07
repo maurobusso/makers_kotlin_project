@@ -61,6 +61,9 @@ class MainActivity : ComponentActivity() {
             val button = findViewById<View>(buttonId)
 
             button.setOnClickListener {
+                indexes = findIndexes(binding, wordToGuess, letter)
+                targetWord = displayLetters(indexes, targetWord, letter)
+                button.visibility=View.GONE
 
             }
         }
@@ -100,11 +103,63 @@ class MainActivity : ComponentActivity() {
         }
         return indexes
     }
+
+
+    private fun displayLetters(indexes:MutableList<Int>, targetWord:String,letter: Char):String{
+        val stringBuilder=StringBuilder(targetWord)
+        if(indexes.size>0){
+            indexes.map {index->
+                stringBuilder.setCharAt(index*2,letter.uppercaseChar())
+                binding.word.text=stringBuilder.toString()
+            }
+        }
+        if(!stringBuilder.contains("_")){
+            wordFoundFlag = true
+            showGameOverDialog(wordFoundFlag)
+        }
+        return stringBuilder.toString()
+    }
+
+    private fun showGameOverDialog(gameOverFlag: Boolean) {
+        val builder = AlertDialog.Builder(this)
+        builder.setCancelable(false)
+
+        if (gameOverFlag) {
+            builder.setTitle("YOU WON")
+            builder.setMessage("Congrats! You Won The Game")
+
+            builder.setPositiveButton("Play Again") { dialog, which ->
+                startGame()
+            }
+            builder.setNegativeButton("Exit") { dialog, which ->
+                System.exit(0)
+            }
+
+        }
+
+        else{
+            builder.setTitle("GAME OVER")
+            builder.setMessage("You Lost The Game. The word was ${word.uppercase()}")
+
+            builder.setPositiveButton("Play Again") { dialog, which ->
+                startGame()
+            }
+            builder.setNegativeButton("Exit") { dialog, which ->
+                System.exit(0)
+            }
+
+        }
+
+        builder.show()
+
+    }
+
     private fun updateImage(binding: ActivityMainBinding, attempts: Int){
         val imageName = "Hangman_$attempts"
         val imageResourceId = resources.getIdentifier(imageName, "drawable", packageName)
-        binding.hangman.SetImageResource(imageResourceId)
+        binding.flower.setImageResource(R.drawable.petal_0)
     }
+
 }
 
     @Composable

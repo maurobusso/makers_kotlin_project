@@ -36,8 +36,13 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
+    }
+    viewBinding{
+        enable = true
     }
 }
+
 
 dependencies {
     implementation(libs.androidx.core.ktx)

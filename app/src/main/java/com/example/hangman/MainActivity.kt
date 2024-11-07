@@ -32,9 +32,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+    // making the app visible
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        enableEdgeToEdge()
 //        setContentView(R.layout.activity_main)
+//    }
     }
-}
 
 @Composable
 fun Flower(modifier: Modifier = Modifier) {
@@ -77,6 +82,22 @@ fun App(){
         Layout()
     }
 }
+
+//     // variables
+//     private var attempts = 0 // falseCount
+//     private var wordFoundFlag = true // gameOverFlag did they find the word?
+//     private lateinit var wordToGuess:String // word to guess
+//     private lateinit var visibleWord:String // targetWord visible to the player
+//     private lateinit var indexes:MutableList<Int>
+//     private var randomNumber=0 // index of the randomly selected word in he words file
+
+//     //function to start the game and reinitialise variables
+//     private fun StartGame() {
+//         attempts = 0
+//         binding.flower.setImageResource(0)
+//     }
+// }
+
 
 @Preview(showBackground = true)
 @Composable
